@@ -1,11 +1,16 @@
-public class Position {
+class Position {
+    int row, column;
 
-    int row;
-    int column; 
+    Position(int row, int column) {
+        this.row = row;
+        this.column = column;
+    }
 
-    Position(int row, int column)throws IllegalArgumentException{
-        if(row<0||column<0)throw new IllegalArgumentException("Enter valid row and column"); 
-        this.row = row; 
-        this.column = column; 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Position position = (Position) o;
+        return row == position.row && column == position.column;
     }
 }
